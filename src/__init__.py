@@ -6,9 +6,16 @@ class Bot(discord.Client):
         print("connected to server: ", self.guilds.__getitem__(0))
 
     async def on_message(self, message):
-        if message.author.id != self.user.id:
-            await message.channel.send("du bist behindert")
+        if message.author.id == self.user.id:
+            return
+
+        elif message.content.startswith('Hallo'):
+            message.channel.send('Du bist immernoch behindert')
+
+
+        """if message.author.id != self.user.id:
+            await message.channel.send("du bist behindert")"""
 
 
 client: Bot = Bot()
-client.run('ODE2Mzc4MzkyOTY5NjA5MjU3.YD6FoA.bT0w-5BNU0KvbXTjymUzWaA7gec')
+client.run('ODE2Mzc4MzkyOTY5NjA5MjU3.YD6FoA.DCtvB90xmQ09qPv7_bPa8tbEdaY')
