@@ -2,6 +2,9 @@ import discord
 
 
 class Bot(discord.Client):
+
+    prefix = '%'
+
     async def on_ready(self):
         print("connected to server: ", self.guilds.__getitem__(0))
 
@@ -9,10 +12,15 @@ class Bot(discord.Client):
         if message.author.id == self.user.id:
             return
 
-        elif message.content.startswith('Hallo'):
-            message.channel.send('Du bist immernoch behindert')
+        elif message.content.startswith(Bot.prefix):
+            message.content = message.content[1:]
+            if message.content.startswith('prefix'):
+                Bot.prefix = message.content[(len(message.content)-1)]
+                strmsg = "New prefix: " + Bot.prefix
+                await message.channel.send(strmsg)
 
-
+        else:
+            return
         """if message.author.id != self.user.id:
             await message.channel.send("du bist behindert")"""
 
