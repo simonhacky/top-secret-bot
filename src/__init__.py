@@ -7,13 +7,8 @@ class Bot(discord.Client):
 
     async def on_ready(self):
         print("connected to server: ", self.guilds.__getitem__(0))
-        while True:
-            await client.change_presence(activity=discord.Game("Ich"), status=discord.Status.online)
-            t.sleep(3)
-            await client.change_presence(activity=discord.Game("bin"), status=discord.Status.online)
-            t.sleep(3)
-            await client.change_presence(activity=discord.Game("Tobi"), status=discord.Status.online)
-            t.sleep(3)
+        await client.change_presence(activity=discord.Game("Der Coolste aufm Server"), status=discord.Status.online)
+
 
     async def on_message(self, message):
         if message.author.id != self.user.id and message.content.startswith(Bot.prefix):
@@ -75,4 +70,4 @@ async def reset(message):
 
 
 client: Bot = Bot()
-client.run('ODE2Mzc4MzkyOTY5NjA5MjU3.YD6FoA.uPFGI0G0oMXq-jyRCpk9DjTJ5eA')
+client.run('ODE2Mzc4MzkyOTY5NjA5MjU3.YD6FoA.PQpTHR455iw1kROpRq2ozfX6cTI')
