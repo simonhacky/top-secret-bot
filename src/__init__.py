@@ -7,15 +7,13 @@ class Bot(discord.Client):
 
     async def on_ready(self):
         print("connected to server: ", self.guilds.__getitem__(0))
-
-    async def status_task(self):
         while True:
-            await client.change_presence(activity=discord.Game('Simon'), status = discord.Status.online)
-            t.sleep(2)
-            await client.change_presence(activity=discord.Game('ist'), status=discord.Status.online)
-            t.sleep(2)
-            await client.change_presence(activity=discord.Game('lost'), status=discord.Status.online)
-            t.sleep(2)
+            await client.change_presence(activity=discord.Game("Ich"), status=discord.Status.online)
+            t.sleep(3)
+            await client.change_presence(activity=discord.Game("bin"), status=discord.Status.online)
+            t.sleep(3)
+            await client.change_presence(activity=discord.Game("Tobi"), status=discord.Status.online)
+            t.sleep(3)
 
     async def on_message(self, message):
         if message.author.id != self.user.id and message.content.startswith(Bot.prefix):
