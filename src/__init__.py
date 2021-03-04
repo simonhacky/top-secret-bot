@@ -1,12 +1,21 @@
 import discord
 import TicTacToe
-
+import time as t
 
 class Bot(discord.Client):
     prefix = '%'
 
     async def on_ready(self):
         print("connected to server: ", self.guilds.__getitem__(0))
+
+    async def status_task(self):
+        while True:
+            await client.change_presence(activity=discord.Game('Simon'), status = discord.Status.online)
+            t.sleep(2)
+            await client.change_presence(activity=discord.Game('ist'), status=discord.Status.online)
+            t.sleep(2)
+            await client.change_presence(activity=discord.Game('lost'), status=discord.Status.online)
+            t.sleep(2)
 
     async def on_message(self, message):
         if message.author.id != self.user.id and message.content.startswith(Bot.prefix):
@@ -68,4 +77,4 @@ async def reset(message):
 
 
 client: Bot = Bot()
-client.run('ODE2Mzc4MzkyOTY5NjA5MjU3.YD6FoA.iE-wjYBmPZOg2-LUiaJ9QMAfTA0')
+client.run('ODE2Mzc4MzkyOTY5NjA5MjU3.YD6FoA.uPFGI0G0oMXq-jyRCpk9DjTJ5eA')
