@@ -25,9 +25,9 @@ class Board:
         for i in range(len(self.fields)):
             if i % 3 == 0 and i != 0:
                 string += '\n'
-            if self.fields[i] == 'o':
-                string += '<:x:1451>'
             if self.fields[i] == 'x':
+                string += '<:x:1451>'
+            if self.fields[i] == 'o':
                 string += '<:o:1447>'
             if self.fields[i] == ' ':
                 string += '<:white_square_button:1546>'

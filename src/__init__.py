@@ -70,4 +70,4 @@ async def reset(message):
 
 
 client: Bot = Bot()
-client.run('ODE2Mzc4MzkyOTY5NjA5MjU3.YD6FoA.PQpTHR455iw1kROpRq2ozfX6cTI')
+client.run('ODE2Mzc4MzkyOTY5NjA5MjU3.YD6FoA.RuVyZqB-3EdrbnOnGXvKp_Hp7Gk')
