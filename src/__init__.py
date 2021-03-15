@@ -1,5 +1,6 @@
 import discord
 import TicTacToe
+import RockPaperScissors
 import time as t
 
 class Bot(discord.Client):
@@ -33,8 +34,15 @@ class Bot(discord.Client):
             if message.content.startswith('reset'):
                 await reset(message)
 
+            if message.content.startswith('rps'):
+                await rockpaperscissors(message)
+
+            if message.content.startswith('rock') or message.content.startswith('paper') or message.content.startswith('scissor'):
+                await rockpaperscissorsPlay(message)
+
 
 tic_tac_toe = TicTacToe
+rock_paper_scissors = RockPaperScissors
 player_ids = []
 
 
@@ -68,6 +76,12 @@ async def reset(message):
     else:
         await message.channel.send(tic_tac_toe.game.reset())
 
+async def rockpaperscissors(message):
+    await message.channel.send('To play Rock, Paper, Scissors against the bot, use the commands "%rock", "%paper", "%scissor"')
+
+async def rockpaperscissorsPlay(message):
+    await message.channel.send(rock_paper_scissors.play(message.content))
+
 
 client: Bot = Bot()
-client.run('ODE2Mzc4MzkyOTY5NjA5MjU3.YD6FoA.RuVyZqB-3EdrbnOnGXvKp_Hp7Gk')
+client.run('')
